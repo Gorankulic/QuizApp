@@ -1,8 +1,24 @@
+body {
+    background-color: cornflowerblue !important;
+}
+
 .container {
+    padding: 10em;
     min-height: 100%;
     background-color: cornflowerblue !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 100%;
+}
+
+.quiz-card {
+    width: 25rem;
+}
+
+.question-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
 }
