@@ -279,6 +279,6 @@ let questions = [{
         answer_3: "San Francisco Bay",
         answer_4: "Rio de la Plata",
         right_answer: 4
-    },
+    }
 
 ];
