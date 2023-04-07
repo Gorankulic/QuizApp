@@ -222,14 +222,7 @@ let questions = [{
         answer_4: "Lake Superior",
         right_answer: 2
     },
-    {
-        question: "What is the name of the world's largest hot desert?",
-        answer_1: "Gobi Desert",
-        answer_2: "Kalahari Desert",
-        answer_3: "Sahara Desert",
-        answer_4: "Mojave Desert",
-        right_answer: 3
-    },
+
     {
         question: "What is the name of the largest planet in our solar system?",
         answer_1: "Venus",
@@ -254,14 +247,7 @@ let questions = [{
         answer_4: "Thermometer",
         right_answer: 2
     },
-    {
-        question: "What is the name of the smallest planet in our solar system?",
-        answer_1: "Venus",
-        answer_2: "Jupiter",
-        answer_3: "Mercury",
-        answer_4: "Mars",
-        right_answer: 3
-    },
+
     {
         question: "What is the name of the world's largest reptile?",
         answer_1: "Python",
@@ -294,12 +280,5 @@ let questions = [{
         answer_4: "Rio de la Plata",
         right_answer: 4
     },
-    {
-        question: "What is the name of the world's largest continent?",
-        answer_1: "North America",
-        answer_2: "South America",
-        answer_3: "Europe",
-        answer_4: "Asia",
-        right_answer: 4
-    }
+
 ];
