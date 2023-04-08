@@ -13,10 +13,16 @@ function init() {
 // A variable that indicates the currently displayed question
 // Eine Variable, die die aktuell angezeigte Frage angibt
 let currentQuestion = 0;
+let rightQuestions = 0;
 
 function showQuestion() {
 
     if (currentQuestion >= questions.length) {
+        document.getElementById('endScreen').style = '';
+        document.getElementById('questionBody').style = 'display: none';
+        document.getElementById('amount-of-questions').innerHTML = questions.length;
+        document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+
 
     } else {
 
@@ -71,6 +77,7 @@ function answer(selection) {
         // If the selected answer is correct, adds a 'bg-success' class to the parent element of the selected answer
         // Wenn die ausgewählte Antwort korrekt ist, wird der Eltern-Element des ausgewählten Antwort ein 'bg-success' Klasse hinzugefügt
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
     } else {
         // Ako je odabrani odgovor netočan, dodaje se klasa 'bg-danger' roditeljskom elementu odabranog odgovora,
         // i klasa 'bg-success' roditeljskom elementu točnog odgovora

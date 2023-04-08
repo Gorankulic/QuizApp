@@ -27,7 +27,19 @@
     <div class="container">
         <div class="card quiz-card">
             <img src="img/background_picture.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div id="endScreen" class="card-body" style="display: none;">
+                <div class="text-center"> Quiz beendet!</div>
+                <div>
+                    <img class="width-100" src="img/winner.jpg" alt="winner image">
+                </div>
+                <div class="text-center">
+                    Du hast <b id="amount-of-right-questions"></b> Fragen von <b id="amount-of-questions"></b> Fragen richting beantwortet. </div>
+
+            </div>
+
+
+            <div id="questionBody" class="card-body">
                 <h5 class="card-title" id="questiontext"></h5>
 
                 <div class="quiz-answer-card card mb-2" onclick="answer('answer_1')">
