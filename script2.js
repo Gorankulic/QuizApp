@@ -15,30 +15,37 @@ function init() {
 let currentQuestion = 0;
 
 function showQuestion() {
-    // Dohvaća pitanje koje treba prikazati
-    // Gets the question that needs to be displayed
-    // Ruft die Frage ab, die angezeigt werden soll
-    let question = questions[currentQuestion];
-    // Postavlja tekst pitanja u HTML element s ID-jem "questiontext"
-    // Sets the text of the question in the HTML element with the ID "questiontext"
-    // Legt den Text der Frage im HTML-Element mit der ID "questiontext" fest
-    document.getElementById('questiontext').innerHTML = question['question'];
-    // Postavlja tekst odgovora 1 u HTML element s ID-jem "answer_1"
-    // Sets the text of answer 1 in the HTML element with the ID "answer_1"
-    // Legt den Text von Antwort 1 im HTML-Element mit der ID "answer_1" fest
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    // Postavlja tekst odgovora 2 u HTML element s ID-jem "answer_2"
-    // Sets the text of answer 2 in the HTML element with the ID "answer_2"
-    // Legt den Text von Antwort 2 im HTML-Element mit der ID "answer_2" fest
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    // Postavlja tekst odgovora 3 u HTML element s ID-jem "answer_3"
-    // Sets the text of answer 3 in the HTML element with the ID "answer_3"
-    // Legt den Text von Antwort 3 im HTML-Element mit der ID "answer_3" fest
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    // Postavlja tekst odgovora 4 u HTML element s ID-jem "answer_4"
-    // Sets the text of answer 4 in the HTML element with the ID "answer_4"
-    // Legt den Text von Antwort 4 im HTML-Element mit der ID "answer_4" fest
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+    if (currentQuestion >= questions.length) {
+
+    } else {
+
+        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+        // Dohvaća pitanje koje treba prikazati
+        // Gets the question that needs to be displayed
+        // Ruft die Frage ab, die angezeigt werden soll
+        let question = questions[currentQuestion];
+        // Postavlja tekst pitanja u HTML element s ID-jem "questiontext"
+        // Sets the text of the question in the HTML element with the ID "questiontext"
+        // Legt den Text der Frage im HTML-Element mit der ID "questiontext" fest
+        document.getElementById('questiontext').innerHTML = question['question'];
+        // Postavlja tekst odgovora 1 u HTML element s ID-jem "answer_1"
+        // Sets the text of answer 1 in the HTML element with the ID "answer_1"
+        // Legt den Text von Antwort 1 im HTML-Element mit der ID "answer_1" fest
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        // Postavlja tekst odgovora 2 u HTML element s ID-jem "answer_2"
+        // Sets the text of answer 2 in the HTML element with the ID "answer_2"
+        // Legt den Text von Antwort 2 im HTML-Element mit der ID "answer_2" fest
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        // Postavlja tekst odgovora 3 u HTML element s ID-jem "answer_3"
+        // Sets the text of answer 3 in the HTML element with the ID "answer_3"
+        // Legt den Text von Antwort 3 im HTML-Element mit der ID "answer_3" fest
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        // Postavlja tekst odgovora 4 u HTML element s ID-jem "answer_4"
+        // Sets the text of answer 4 in the HTML element with the ID "answer_4"
+        // Legt den Text von Antwort 4 im HTML-Element mit der ID "answer_4" fest
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answer(selection) {
