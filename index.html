@@ -25,14 +25,16 @@
     </nav>
 
     <div class="container">
+
         <div class="card quiz-card">
-            <img src="img/background_picture.jpg" class="card-img-top">
+            <img src="img/background_picture.jpg" id="header-image" class="card-img-top">
+
+
+            <div id="progress-bar" class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
             <div id="endScreen" class="card-body" style="display: none;">
-                <div class="text-center"> Quiz beendet!</div>
-                <div>
-                    <img class="width-100" src="img/winner.jpg" alt="winner image">
-                </div>
+                <div class="text-center final-headline"> Quiz beendet!</div>
+
                 <div class="text-center">
                     Du hast <b id="amount-of-right-questions"></b> Fragen von <b id="amount-of-questions"></b> Fragen richting beantwortet. </div>
 
