@@ -126,3 +126,13 @@ function resetAnswerButtons() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
+
+function restartGame() {
+    document.getElementById('header-image').src = 'img/background_picture.jpg';
+    document.getElementById('questionBody').style = '';
+    document.getElementById('endScreen').style = 'display: none';
+
+    currentQuestion = 0;
+    rightQuestions = 0;
+    init();
+}
