@@ -27,7 +27,7 @@ function showQuestion() {
 
     } else {
 
-        let percent = currentQuestion + 1 / questions.length;
+        let percent = (currentQuestion + 1) / questions.length;
         percent = Math.round(percent * 100);
         document.getElementById('progress-bar').innerHTML = `${percent} %`;
         document.getElementById('progress-bar').style = `width: ${percent}%;`;

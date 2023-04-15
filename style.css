@@ -45,3 +45,7 @@ body {
     font-size: 38px;
     margin-bottom: 32px;
 }
+
+.progress-bar {
+    color: #61a1fe;
+}
