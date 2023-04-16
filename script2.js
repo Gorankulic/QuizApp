@@ -14,6 +14,8 @@ function init() {
 // Eine Variable, die die aktuell angezeigte Frage angibt
 let currentQuestion = 0;
 let rightQuestions = 0;
+let audio_success = new Audio('audio/success.mp3');
+let audio_fail = new Audio('audio/fail.mp3');
 
 function showQuestion() {
 
@@ -87,6 +89,7 @@ function answer(selection) {
         // If the selected answer is correct, adds a 'bg-success' class to the parent element of the selected answer
         // Wenn die ausgewählte Antwort korrekt ist, wird der Eltern-Element des ausgewählten Antwort ein 'bg-success' Klasse hinzugefügt
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        audio_success.play();
         rightQuestions++;
     } else {
         // Ako je odabrani odgovor netočan, dodaje se klasa 'bg-danger' roditeljskom elementu odabranog odgovora,
@@ -97,6 +100,7 @@ function answer(selection) {
         // und ein 'bg-success' Klasse dem Eltern-Element der richtigen Antwort hinzugefügt
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        audio_fail.play();
     }
 
     // Omogućava gumb 'next'
