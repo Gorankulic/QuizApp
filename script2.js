@@ -18,52 +18,59 @@ let audio_success = new Audio('audio/success.mp3');
 let audio_fail = new Audio('audio/fail.mp3');
 
 function showQuestion() {
-
-    if (currentQuestion >= questions.length) {
-        document.getElementById('endScreen').style = '';
-        document.getElementById('questionBody').style = 'display: none';
-        document.getElementById('amount-of-questions').innerHTML = questions.length;
-        document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-        document.getElementById('header-image').src = 'img/winner.jpg';
-
-
+    if (gameIsOver()) {
+        showEndScreen();
     } else {
-
-        let percent = (currentQuestion + 1) / questions.length;
-        percent = Math.round(percent * 100);
-        document.getElementById('progress-bar').innerHTML = `${percent} %`;
-        document.getElementById('progress-bar').style = `width: ${percent}%;`;
-
-
-        console.log('Fortschritt:', percent);
-
-
-        document.getElementById('question-number').innerHTML = currentQuestion + 1;
-        // Dohvaća pitanje koje treba prikazati
-        // Gets the question that needs to be displayed
-        // Ruft die Frage ab, die angezeigt werden soll
-        let question = questions[currentQuestion];
-        // Postavlja tekst pitanja u HTML element s ID-jem "questiontext"
-        // Sets the text of the question in the HTML element with the ID "questiontext"
-        // Legt den Text der Frage im HTML-Element mit der ID "questiontext" fest
-        document.getElementById('questiontext').innerHTML = question['question'];
-        // Postavlja tekst odgovora 1 u HTML element s ID-jem "answer_1"
-        // Sets the text of answer 1 in the HTML element with the ID "answer_1"
-        // Legt den Text von Antwort 1 im HTML-Element mit der ID "answer_1" fest
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        // Postavlja tekst odgovora 2 u HTML element s ID-jem "answer_2"
-        // Sets the text of answer 2 in the HTML element with the ID "answer_2"
-        // Legt den Text von Antwort 2 im HTML-Element mit der ID "answer_2" fest
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        // Postavlja tekst odgovora 3 u HTML element s ID-jem "answer_3"
-        // Sets the text of answer 3 in the HTML element with the ID "answer_3"
-        // Legt den Text von Antwort 3 im HTML-Element mit der ID "answer_3" fest
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        // Postavlja tekst odgovora 4 u HTML element s ID-jem "answer_4"
-        // Sets the text of answer 4 in the HTML element with the ID "answer_4"
-        // Legt den Text von Antwort 4 im HTML-Element mit der ID "answer_4" fest
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
+        updateProgressBar();
+        updateToNextQuestion();
     }
+}
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
+
+function updateToNextQuestion() {
+    document.getElementById('question-number').innerHTML = currentQuestion + 1;
+    // Dohvaća pitanje koje treba prikazati
+    // Gets the question that needs to be displayed
+    // Ruft die Frage ab, die angezeigt werden soll
+    let question = questions[currentQuestion];
+    // Postavlja tekst pitanja u HTML element s ID-jem "questiontext"
+    // Sets the text of the question in the HTML element with the ID "questiontext"
+    // Legt den Text der Frage im HTML-Element mit der ID "questiontext" fest
+    document.getElementById('questiontext').innerHTML = question['question'];
+    // Postavlja tekst odgovora 1 u HTML element s ID-jem "answer_1"
+    // Sets the text of answer 1 in the HTML element with the ID "answer_1"
+    // Legt den Text von Antwort 1 im HTML-Element mit der ID "answer_1" fest
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    // Postavlja tekst odgovora 2 u HTML element s ID-jem "answer_2"
+    // Sets the text of answer 2 in the HTML element with the ID "answer_2"
+    // Legt den Text von Antwort 2 im HTML-Element mit der ID "answer_2" fest
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    // Postavlja tekst odgovora 3 u HTML element s ID-jem "answer_3"
+    // Sets the text of answer 3 in the HTML element with the ID "answer_3"
+    // Legt den Text von Antwort 3 im HTML-Element mit der ID "answer_3" fest
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    // Postavlja tekst odgovora 4 u HTML element s ID-jem "answer_4"
+    // Sets the text of answer 4 in the HTML element with the ID "answer_4"
+    // Legt den Text von Antwort 4 im HTML-Element mit der ID "answer_4" fest
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+}
+
+function updateProgressBar() {
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
+    document.getElementById('progress-bar').innerHTML = `${percent} %`;
+    document.getElementById('progress-bar').style = `width: ${percent}%;`;
+}
+
+function showEndScreen() {
+    document.getElementById('endScreen').style = '';
+    document.getElementById('questionBody').style = 'display: none';
+    document.getElementById('amount-of-questions').innerHTML = questions.length;
+    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+    document.getElementById('header-image').src = 'img/winner.jpg';
 }
 
 function answer(selection) {
@@ -84,7 +91,7 @@ function answer(selection) {
     // Provjerava je li odabran odgovor jednak točnom odgovoru na pitanje
     // Checks if the selected answer is equal to the correct answer for the question
     // Überprüft, ob die ausgewählte Antwort der richtigen Antwort für die Frage entspricht
-    if (selectedQuestionNumber == question['right_answer']) {
+    if (rightAnswerSelected(selectedQuestionNumber)) {
         // Ako je odabrani odgovor točan, dodaje se klasa 'bg-success' roditeljskom elementu odabranog odgovora
         // If the selected answer is correct, adds a 'bg-success' class to the parent element of the selected answer
         // Wenn die ausgewählte Antwort korrekt ist, wird der Eltern-Element des ausgewählten Antwort ein 'bg-success' Klasse hinzugefügt
@@ -107,6 +114,10 @@ function answer(selection) {
     // Enables the 'next' button
     // Aktiviert die Schaltfläche 'Weiter'
     document.getElementById('next-button').disabled = false;
+}
+
+function rightAnswerSelected(selectedQuestionNumber) {
+    return selectedQuestionNumber == question['right_answer'];
 }
 
 function nextQuestion() {
